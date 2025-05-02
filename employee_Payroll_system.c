@@ -190,6 +190,31 @@ void deleteEmployee() {
         printf("Employee not found.\n");
     }
 }
+void sortBySalary() {
+    for (int i = 0; i < employee_count - 1; i++) {
+        for (int j = i + 1; j < employee_count; j++) {
+            if (employees[i].net_salary < employees[j].net_salary) {
+                Employee temp = employees[i];
+                employees[i] = employees[j];
+                employees[j] = temp;
+            }
+        }
+    }
+    displayEmployees();
+}
+
+void sortByName() {
+    for (int i = 0; i < employee_count - 1; i++) {
+        for (int j = i + 1; j < employee_count; j++) {
+            if (strcmp(employees[i].name, employees[j].name) > 0) {
+                Employee temp = employees[i];
+                employees[i] = employees[j];
+                employees[j] = temp;
+            }
+        }
+    }
+    displayEmployees();
+}
 
 int login() {
     char pass[20];
